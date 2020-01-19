@@ -10,7 +10,7 @@ Restart=always
 ExecStartPre=-/usr/bin/docker stop duet_control_server
 ExecStartPre=-/usr/bin/docker rm duet_control_server
 ExecStartPre=/usr/bin/docker pull devopsintralox/duet_control_server:latest
-ExecStart=/usr/bin/docker run --privileged --name duet_control_server -v duet_control_server:/opt/dsf/sd -v /mnt/data/duet_sockets:/var/run/dsf devopsintralox/duet_control_server
+ExecStart=/usr/bin/docker run --privileged --name duet_control_server -h duetcontrolserver -v duet_control_server:/opt/dsf/sd -v /mnt/data/duet_sockets:/var/run/dsf devopsintralox/duet_control_server
 
 [Install]
 WantedBy=multi-user.target

@@ -12,7 +12,7 @@ Restart=always
 ExecStartPre=-/usr/bin/docker stop duet_web_server
 ExecStartPre=-/usr/bin/docker rm duet_web_server
 ExecStartPre=/usr/bin/docker pull devopsintralox/duet_web_server:latest
-ExecStart=/usr/bin/docker run --name duet_web_server -p 80:5000 -v /mnt/data/duet_sockets:/var/run/dsf -v duet_web_server:/opt/dsf/sd/www devopsintralox/duet_web_server:latest
+ExecStart=/usr/bin/docker run --name duet_web_server -p 80:5000 -h duetwebserver -v /mnt/data/duet_sockets:/var/run/dsf -v duet_web_server:/opt/dsf/sd/www devopsintralox/duet_web_server:latest
 
 [Install]
 WantedBy=multi-user.target
