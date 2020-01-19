@@ -6,4 +6,6 @@ ADD startup.sh /startup.sh
 
 RUN dos2unix startup.sh && chmod +x /startup.sh
 
+VOLUME ["/opt/dsf/sd/"]
+
 ENTRYPOINT [ "/startup.sh" ]

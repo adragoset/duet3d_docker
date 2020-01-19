@@ -1,2 +1,2 @@
 #!/bin/bash
-/opt/dsf/bin/DuetWebServer $@
+cd /opt/dsf/sd/www && /opt/dsf/bin/DuetWebServer $@
