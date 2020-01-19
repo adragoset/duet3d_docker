@@ -1,6 +1,6 @@
 FROM devopsintralox/duet_software_framework:latest
 
-RUN apt-get update && apt-get install dos2unix
+RUN apt-get update && apt-get install -y dos2unix
 
 ADD startup.sh /startup.sh
 
