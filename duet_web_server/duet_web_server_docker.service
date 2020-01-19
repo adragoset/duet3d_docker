@@ -1,0 +1,18 @@
+[Unit]
+Description=Duet Web Server
+After=docker.service
+Requires=docker.service
+After=duet_control_server_docker.service
+Requires=duet_control_server_docker.service
+
+[Service]
+TimeoutStartSec=0
+RestartSec=10s
+Restart=always
+ExecStartPre=-/usr/bin/docker stop duet_web_server
+ExecStartPre=-/usr/bin/docker rm duet_web_server
+ExecStartPre=/usr/bin/docker pull devopsintralox/duet_web_server:latest
+ExecStart=/usr/bin/docker run --name duet_web_server -p 80:5000 -v /mnt/data/duet_sockets:/var/run/dsf devopsintralox/duet_web_server:latest
+
+[Install]
+WantedBy=multi-user.target
