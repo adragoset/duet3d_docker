@@ -4,6 +4,8 @@ After=docker.service
 Requires=docker.service
 After=docker.duet_control_server.service
 Requires=docker.duet_control_server.service
+After=docker.rpi_camera_control.service
+Requires=docker.rpi_camera_control.service
 
 [Service]
 TimeoutStartSec=0
@@ -13,6 +15,7 @@ ExecStartPre=-/usr/bin/docker stop duet_web_server
 ExecStartPre=-/usr/bin/docker rm duet_web_server
 ExecStartPre=/usr/bin/docker pull devopsintralox/duet_web_server:latest
 ExecStart=/usr/bin/docker run --name duet_web_server -p 80:80 -h duetwebserver -v /mnt/data/duet_sockets:/var/run/dsf -v /mnt/data/duet_data:/opt/dsf/sd devopsintralox/duet_web_server:latest
+ExecStop=/usr/bin/docker stop duet_web_server
 
 [Install]
 WantedBy=multi-user.target
