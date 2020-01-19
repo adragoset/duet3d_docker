@@ -2,7 +2,7 @@ FROM arm32v7/debian:buster-slim
 
 # install dependencies
 RUN apt-get update && \
-apt-get install - y wget apt-transport-https && \
+apt-get install -y wget apt-transport-https && \
 wget -q https://pkg.duet3d.com/duet3d.gpg && \
 wget -q https://pkg.duet3d.com/duet3d.list && \
 sudo mv duet3d.gpg /etc/apt/trusted.gpg.d/ && \
