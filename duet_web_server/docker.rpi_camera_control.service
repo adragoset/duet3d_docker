@@ -10,8 +10,8 @@ Restart=always
 ExecStartPre=-/usr/bin/docker stop rpi-cam
 ExecStartPre=-/usr/bin/docker rm rpi-cam
 ExecStartPre=/usr/bin/docker pull droogmic/rpi-cam-web:latest
-ExecStart=/usr/bin/docker run -d --name=rpi-cam -p=5000:80/tcp --volume=/opt/vc:/opt/vc --device=/dev/vchiq --device=/dev/vcsm droogmic/rpi-cam-web
-ExecStop=/usr/bin/docker stop rpi-cam
+ExecStart=/usr/bin/docker run --name=rpi-cam -p=5000:80/tcp --volume=/opt/vc:/opt/vc --device=/dev/vchiq --device=/dev/vcsm droogmic/rpi-cam-web
+ExecStop=/usr/bin/docker stop rpi-cams
 
 [Install]
 WantedBy=multi-user.target
