@@ -2,8 +2,8 @@
 Description=Duet Web Server
 After=docker.service
 Requires=docker.service
-After=duet_control_server_docker.service
-Requires=duet_control_server_docker.service
+After=docker.duet_control_server.service
+Requires=docker.duet_control_server.service
 
 [Service]
 TimeoutStartSec=0
