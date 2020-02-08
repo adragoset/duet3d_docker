@@ -10,4 +10,4 @@ mv duet3d.list /etc/apt/sources.list.d/duet3d.list
 
 #install the software framework
 RUN apt-get update && \
-apt-get install -y duetsoftwareframework
+apt-get install -y duetsoftwareframework=1.2.4.0
